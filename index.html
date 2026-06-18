@@ -1,0 +1,1016 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Rage AI | AI Automations &amp; Lead-Gen for Small Businesses</title>
+
+  <!-- SEO -->
+  <meta name="description" content="The Rage AI builds custom AI automation and lead-generation systems for small businesses. Turn manual work into hands-free revenue with n8n workflows, AI lead scoring, and more. Founded by Colton Deatherage.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Rage AI | AI Automations &amp; Lead-Gen for Small Businesses">
+  <meta property="og:description" content="Custom AI automation and lead-gen systems for small businesses. Stop doing manually what AI can do.">
+  <meta property="og:image" content="og-image.jpg">
+  <meta property="og:url" content="https://therageai.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Rage AI">
+  <meta name="twitter:description" content="AI automation and lead-gen for small businesses. Built by Colton Deatherage.">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "The Rage AI",
+    "description": "AI automation and lead-generation agency for small businesses",
+    "founder": {
+      "@type": "Person",
+      "name": "Colton Deatherage",
+      "jobTitle": "Founder"
+    },
+    "serviceType": ["AI Workflow Automation", "Lead Generation", "n8n Automation", "AI Lead Scoring", "Content Automation"]
+  }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans:    ['Inter', 'sans-serif'],
+            display: ['Playfair Display', 'serif'],
+          },
+          colors: {
+            bg:      '#030000',
+            surface: '#0A0000',
+            card:    '#110000',
+            border:  '#1C0000',
+            accent:  { DEFAULT: '#FA0821', dark: '#C4001A', light: '#FF3347' },
+            purple:  { DEFAULT: '#8B2BE2', light: '#A855F7', dark: '#6D1CB8' },
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background-color: #030000; font-family: 'Inter', sans-serif; color: #fff; }
+
+    /* ── LOGO STAMP (full-page fixed) ── */
+    .logo-layer {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 84vmin; height: 84vmin;
+      z-index: 0; pointer-events: none;
+    }
+    .logo-base {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: contain;
+      filter: brightness(0.18) grayscale(1);
+    }
+
+    /* ── HERO LOGO (hero-section specific) ── */
+    .hero-logo {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(88vmin, 820px); height: min(88vmin, 820px);
+      pointer-events: none; z-index: 0;
+      object-fit: contain;
+      filter: brightness(0.30) grayscale(1);
+      user-select: none;
+    }
+
+    /* ── STORM / GRAIN ── */
+    .storm {
+      position: fixed; inset: 0; z-index: 1; pointer-events: none;
+      background:
+        radial-gradient(ellipse 150% 65% at 15% 30%, rgba(196,0,26,0.28) 0%, transparent 60%),
+        radial-gradient(ellipse 90% 70% at 100% 100%, rgba(139,43,226,0.42) 0%, rgba(110,0,220,0.18) 45%, transparent 70%),
+        linear-gradient(to bottom, rgba(3,0,0,0.60) 0%, rgba(3,0,0,0.05) 25%, rgba(3,0,0,0.05) 75%, rgba(3,0,0,0.80) 100%);
+    }
+    .grain {
+      position: fixed; inset: -50%; width: 200%; height: 200%;
+      z-index: 2; pointer-events: none; opacity: 0.18;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, transparent 25%, black 75%);
+      mask-image:         radial-gradient(ellipse 70% 70% at 50% 50%, transparent 25%, black 75%);
+    }
+    .grain-coarse {
+      position: fixed; inset: -50%; width: 200%; height: 200%;
+      z-index: 3; pointer-events: none; opacity: 0.08;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.18' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='512' height='512' filter='url(%23c)'/%3E%3C/svg%3E");
+      background-size: 512px 512px;
+      -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, transparent 20%, black 70%);
+      mask-image:         radial-gradient(ellipse 70% 70% at 50% 50%, transparent 20%, black 70%);
+    }
+
+    .page { position: relative; z-index: 20; }
+    .bg-bg      { background-color: rgba(3,0,0,0.72) !important; }
+    .bg-surface { background-color: rgba(10,0,0,0.75) !important; }
+    .bg-card    { background-color: rgba(17,0,0,0.80) !important; }
+    .bg-\[#030000\]\/95  { background-color: rgba(3,0,0,0.92) !important; }
+    .bg-\[#030000\]\/98  { background-color: rgba(3,0,0,0.98) !important; }
+
+    /* ── TYPOGRAPHY ── */
+    .stat-num {
+      background: linear-gradient(135deg, #FF3347, #FF6676);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .accent-text  { color: #FA0821; }
+    .purple-text  { color: #A855F7; }
+    .label-text   { color: #767676; }
+    em.accent-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      color: #FA0821;
+    }
+
+    /* ── CARDS ── */
+    .gradient-border {
+      border: 1px solid transparent;
+      background:
+        linear-gradient(#110000, #110000) padding-box,
+        linear-gradient(135deg, rgba(250,8,33,0.22), rgba(139,43,226,0.18)) border-box;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .gradient-border:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(139,43,226,0.18), 0 4px 12px rgba(250,8,33,0.10);
+    }
+    .highlight-card {
+      background: linear-gradient(135deg, #0e0015, #0A0000);
+      border: 1px solid rgba(139,43,226,0.35);
+    }
+
+    /* Testimonials + Portfolio: red-only, no purple */
+    #testimonials .gradient-border,
+    #portfolio-full .gradient-border {
+      background:
+        linear-gradient(#110000, #110000) padding-box,
+        linear-gradient(135deg, rgba(250,8,33,0.22), rgba(196,0,26,0.10)) border-box;
+    }
+    #testimonials .gradient-border:hover,
+    #portfolio-full .gradient-border:hover {
+      box-shadow: 0 10px 28px rgba(250,8,33,0.13);
+    }
+    #testimonials .highlight-card,
+    #portfolio-full .highlight-card {
+      background: linear-gradient(135deg, #170000, #0A0000);
+      border: 1px solid rgba(250,8,33,0.30);
+    }
+
+    /* ── FEATURED WORK CARDS (ibex style) ── */
+    .featured-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 520px;
+      padding: 3rem;
+      transition: background 0.2s ease;
+    }
+    .featured-card:hover { background: rgba(10,0,0,0.90) !important; }
+    .featured-card-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(4rem, 8vw, 7rem);
+      font-weight: 700;
+      line-height: 1;
+      color: rgba(250,8,33,0.12);
+      margin-bottom: 2rem;
+      display: block;
+    }
+
+    /* ── PULL QUOTE ── */
+    .pull-quote-line {
+      width: 48px; height: 1px;
+      background: linear-gradient(90deg, #FA0821, #8B2BE2);
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 1rem;
+    }
+
+    /* ── FOUNDER PHOTO (rectangular ibex style) ── */
+    .founder-photo-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      border: 1px solid rgba(250,8,33,0.18);
+      border-radius: 1.25rem;
+    }
+    .founder-photo-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .founder-photo-wrap::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(3,0,0,0.55) 100%);
+      pointer-events: none;
+    }
+
+    /* ── FAQ ── */
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .faq-answer.open { max-height: 400px; }
+    .faq-icon { transition: transform 0.3s ease; display: inline-block; }
+    .faq-icon.open { transform: rotate(45deg); }
+    .faq-item {
+      border-left: 2px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+    .faq-item:hover { border-left-color: #8B2BE2; }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      background: #FA0821; color: #fff; font-weight: 700;
+      transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+    }
+    .btn-primary:hover {
+      background: #C4001A;
+      transform: scale(1.03);
+      box-shadow: 0 8px 25px rgba(250,8,33,0.35);
+    }
+    .btn-ghost {
+      border: 1px solid rgba(255,255,255,0.12); color: #ccc;
+      transition: border-color 0.15s, color 0.15s, box-shadow 0.15s;
+    }
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,0.3); color: #fff;
+      box-shadow: 0 4px 14px rgba(255,255,255,0.05);
+    }
+
+    /* ── NAV LINK UNDERLINE ── */
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; bottom: -2px;
+      width: 0; height: 1px;
+      background: linear-gradient(90deg, #FA0821, #8B2BE2);
+      transition: width 0.2s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    /* ── MOBILE MENU ── */
+    #mobileMenu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    #mobileMenu.open { max-height: 280px; }
+    .ham-line {
+      display: block; width: 22px; height: 2px; background: currentColor;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    #hamburgerBtn.open .ham-line:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    #hamburgerBtn.open .ham-line:nth-child(2) { opacity: 0; }
+    #hamburgerBtn.open .ham-line:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.08s; }
+    .reveal-d2 { transition-delay: 0.16s; }
+    .reveal-d3 { transition-delay: 0.24s; }
+    .reveal-d4 { transition-delay: 0.32s; }
+    .reveal-d5 { transition-delay: 0.40s; }
+    .reveal-d6 { transition-delay: 0.48s; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ── SECTION DIVIDER ── */
+    .section-rule {
+      width: 64px; height: 1px;
+      background: linear-gradient(90deg, #FA0821, #8B2BE2);
+      margin: 0 auto 3rem;
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+    <defs>
+      <filter id="stamp-filter" color-interpolation-filters="sRGB" x="-5%" y="-5%" width="110%" height="110%">
+        <feColorMatrix type="saturate" values="0" result="gray"/>
+        <feConvolveMatrix in="gray" order="3"
+          kernelMatrix="-5 -3 0  -3 0 3  0 3 5"
+          divisor="1" bias="0.5" preserveAlpha="true"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <div class="storm"        aria-hidden="true"></div>
+  <div class="logo-layer"   aria-hidden="true">
+    <img src="The_Rage_AI_Circle_Only_Clean.png" class="logo-base" alt="">
+  </div>
+  <div class="grain"        aria-hidden="true"></div>
+  <div class="grain-coarse" aria-hidden="true"></div>
+
+  <div class="page">
+
+  <!-- ── NAVBAR ── -->
+  <nav class="fixed top-0 left-0 right-0 z-50 border-b border-border bg-[#030000]/95 backdrop-blur-md">
+    <div class="w-full px-6 md:px-10 h-16 flex items-center justify-between gap-6">
+      <!-- Left: logo + socials -->
+      <div class="flex items-center gap-4">
+        <a href="#" class="flex items-center">
+          <img src="The_Rage_AI_Circle_Only_Clean.png" class="h-12 w-12 object-contain" alt="The Rage AI">
+        </a>
+        <div class="hidden sm:flex items-center gap-3 text-gray-500">
+          <a href="#" aria-label="LinkedIn" class="hover:text-white transition-colors duration-150">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="hover:text-white transition-colors duration-150">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="#" aria-label="X" class="hover:text-white transition-colors duration-150">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+      <!-- Center: nav links -->
+      <div class="hidden md:flex items-center gap-7 text-sm text-gray-400">
+        <a href="#works"    class="nav-link hover:text-white transition-colors duration-150">Works</a>
+        <a href="#benefits" class="nav-link hover:text-white transition-colors duration-150">Benefits</a>
+        <a href="#faqs"     class="nav-link hover:text-white transition-colors duration-150">FAQs</a>
+      </div>
+      <!-- Right: CTA + hamburger -->
+      <div class="flex items-center gap-3">
+        <a href="#cta" class="btn-primary text-sm px-5 py-2 rounded cursor-pointer whitespace-nowrap">Book A Call</a>
+        <button id="hamburgerBtn" class="md:hidden flex flex-col justify-center gap-[5px] w-8 h-8 text-gray-300 cursor-pointer" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+        </button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="md:hidden border-t border-border bg-[#030000]/98">
+      <div class="px-6 py-5 flex flex-col gap-4 text-sm text-gray-400">
+        <a href="#works"    onclick="toggleMobileMenu()" class="hover:text-white transition-colors duration-150 py-1">Works</a>
+        <a href="#benefits" onclick="toggleMobileMenu()" class="hover:text-white transition-colors duration-150 py-1">Benefits</a>
+        <a href="#faqs"     onclick="toggleMobileMenu()" class="hover:text-white transition-colors duration-150 py-1">FAQs</a>
+        <a href="#cta"      onclick="toggleMobileMenu()" class="btn-primary text-sm px-5 py-3 rounded cursor-pointer text-center">Book A Call</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="relative min-h-screen flex items-center justify-center px-6 pt-24 pb-20 overflow-hidden">
+
+    <!-- Hero logo background — ibex-style centered stamp -->
+    <img src="The_Rage_AI_Circle_Only_Clean.png" class="hero-logo" aria-hidden="true" alt="">
+
+    <div class="relative z-10 max-w-4xl mx-auto w-full text-center reveal">
+
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/25 bg-accent/5 mb-10 text-xs font-semibold accent-text tracking-wider uppercase">
+        <span class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
+        Now Accepting New Clients
+      </div>
+
+      <h1 class="font-display text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight mb-8">
+        Stop Doing<br>
+        <em class="accent-text">Manually</em><br>
+        What AI Can Do
+      </h1>
+
+      <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed">
+        We build AI automation and lead-generation systems for small businesses, turning messy, manual work into systems that run on their own.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
+        <a href="#cta" class="btn-primary inline-flex items-center gap-2 px-10 py-4 rounded text-sm tracking-wide cursor-pointer">
+          Book Your Strategy Call
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </a>
+        <a href="#works" class="btn-ghost inline-flex items-center px-10 py-4 rounded text-sm tracking-wide cursor-pointer">
+          See My Work
+        </a>
+      </div>
+
+      <div class="grid grid-cols-3 gap-2 max-w-xl mx-auto">
+        <div class="bg-bg py-7 px-4 rounded-2xl border border-border">
+          <div class="stat-num font-display text-4xl md:text-5xl font-bold mb-1">5+</div>
+          <div class="text-xs text-gray-500 tracking-wider uppercase">AI Systems Built</div>
+        </div>
+        <div class="bg-bg py-7 px-4 rounded-2xl border border-border">
+          <div class="stat-num font-display text-4xl md:text-5xl font-bold mb-1">4+</div>
+          <div class="text-xs text-gray-500 tracking-wider uppercase">Industries Automated</div>
+        </div>
+        <div class="bg-bg py-7 px-4 rounded-2xl border border-border">
+          <div class="stat-num font-display text-4xl md:text-5xl font-bold mb-1">Perf.</div>
+          <div class="text-xs text-gray-500 tracking-wider uppercase">Based Pricing</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FEATURED WORK (ibex-style tall cards) ── -->
+  <section id="works" class="py-32 px-6">
+    <div class="max-w-6xl mx-auto">
+
+      <div class="text-center mb-20 reveal">
+        <p class="text-xs font-semibold tracking-widest label-text uppercase mb-4">Selected Work</p>
+        <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold">The Work</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 reveal reveal-d1">
+
+        <div class="featured-card bg-bg rounded-2xl border border-border">
+          <div>
+            <span class="featured-card-num">01</span>
+            <p class="text-xs font-semibold tracking-widest label-text uppercase mb-5">E-Commerce</p>
+            <h3 class="font-display text-3xl md:text-4xl font-bold leading-tight mb-6">eBay Product<br>Listing AI</h3>
+            <p class="text-sm text-gray-400 leading-relaxed">Reads items from photos, auto-generates eBay listings, pulls live market pricing, zero manual entry required at any step.</p>
+          </div>
+          <div class="mt-10 pt-6 border-t border-border flex items-center justify-between">
+            <span class="text-xs label-text tracking-wider uppercase">Impact</span>
+            <span class="text-sm font-bold accent-text">Hours of work → 1 click</span>
+          </div>
+        </div>
+
+        <div class="featured-card bg-surface rounded-2xl" style="border:1px solid rgba(139,43,226,0.30)">
+          <div>
+            <span class="featured-card-num" style="color:rgba(139,43,226,0.18)">02</span>
+            <p class="text-xs font-semibold tracking-widest label-text uppercase mb-5">Real Estate</p>
+            <h3 class="font-display text-3xl md:text-4xl font-bold leading-tight mb-6">Lead<br>Qualification<br>System</h3>
+            <p class="text-sm text-gray-400 leading-relaxed">Automated lead scoring and follow-up routing for real estate agents. Every incoming lead is qualified and actioned, no human touch needed.</p>
+          </div>
+          <div class="mt-10 pt-6 border-t border-border flex items-center justify-between">
+            <span class="text-xs label-text tracking-wider uppercase">Impact</span>
+            <span class="text-sm font-bold accent-text">Every lead followed up</span>
+          </div>
+        </div>
+
+        <div class="featured-card bg-bg rounded-2xl border border-border">
+          <div>
+            <span class="featured-card-num">03</span>
+            <p class="text-xs font-semibold tracking-widest label-text uppercase mb-5">B2B / Lead Gen</p>
+            <h3 class="font-display text-3xl md:text-4xl font-bold leading-tight mb-6">LinkedIn<br>Lead-Gen<br>System</h3>
+            <p class="text-sm text-gray-400 leading-relaxed">Content creation and personalized outreach automation on LinkedIn. Signed the first client on a performance-based engagement using this exact system.</p>
+          </div>
+          <div class="mt-10 pt-6 border-t border-border flex items-center justify-between">
+            <span class="text-xs label-text tracking-wider uppercase">Impact</span>
+            <span class="text-sm font-bold accent-text">First paying client landed</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-center mt-12 reveal reveal-d2">
+        <a href="#portfolio-full" class="text-sm text-gray-500 hover:text-white transition-colors duration-150 tracking-wider uppercase">
+          View All Work ↓
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── PULL QUOTE ── -->
+  <section class="py-24 px-6">
+    <div class="max-w-4xl mx-auto text-center reveal">
+      <div class="section-rule"></div>
+      <blockquote class="font-display text-2xl md:text-3xl lg:text-4xl font-bold leading-relaxed text-gray-100 italic mb-10">
+        "We find the repetitive, painful problems inside your business and solve them with AI, so you get more output and more leads without more hours."
+      </blockquote>
+      <cite class="not-italic text-xs tracking-widest label-text uppercase">
+        Colton Deatherage &nbsp;·&nbsp; Founder, The Rage AI
+      </cite>
+      <div class="section-rule mt-10"></div>
+    </div>
+  </section>
+
+  <!-- ── FOUNDER ── -->
+  <section class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+
+        <!-- Left: tall rectangular photo (ibex style) -->
+        <div class="reveal">
+          <div class="founder-photo-wrap">
+            <img src="Senior%20Photos%20Headshot.jpg" alt="Colton Deatherage, Founder of The Rage AI">
+          </div>
+        </div>
+
+        <!-- Right: copy -->
+        <div class="reveal reveal-d1 flex flex-col justify-center md:pt-12">
+          <p class="text-xs font-semibold tracking-widest label-text uppercase mb-5">The Founder</p>
+          <h2 class="font-display text-4xl md:text-5xl font-bold tracking-tight mb-2">Colton Deatherage</h2>
+          <p class="text-gray-400 text-sm mb-8">Founder, The Rage AI &nbsp;·&nbsp; Student-Athlete</p>
+          <p class="text-gray-300 leading-relaxed mb-10 text-sm md:text-base">
+            We build AI automation and lead-gen systems that help small businesses save time and capture more customers. Our focus is finding the repetitive, painful problems inside your business and solving them with AI, so you get more output and more leads without more hours. Colton is also a college football player, which means discipline and performing under pressure is just how we operate.
+          </p>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-card border border-border rounded p-4"><div class="font-display text-2xl font-bold accent-text mb-1">5+</div><div class="text-xs text-gray-500 tracking-wider uppercase">AI Systems Built</div></div>
+            <div class="bg-card border border-border rounded p-4"><div class="font-display text-2xl font-bold accent-text mb-1">4+</div><div class="text-xs text-gray-500 tracking-wider uppercase">Industries Served</div></div>
+            <div class="bg-card border border-border rounded p-4"><div class="font-display text-lg font-bold accent-text mb-1 leading-tight">n8n +<br><span class="text-base">Claude Code</span></div><div class="text-xs text-gray-500 tracking-wider uppercase">Build Stack</div></div>
+            <div class="bg-card border border-border rounded p-4"><div class="text-xl mb-1 leading-tight">⭐⭐⭐⭐⭐</div><div class="text-xs text-gray-500 tracking-wider uppercase">5-Star Reviews</div></div>
+            <div class="bg-card border border-border rounded p-4"><div class="font-display text-2xl font-bold accent-text mb-1">CFB</div><div class="text-xs text-gray-500 tracking-wider uppercase">College Athlete</div></div>
+            <div class="bg-card border border-border rounded p-4"><div class="font-display text-lg font-bold accent-text mb-1 leading-tight">Small<br>Business</div><div class="text-xs text-gray-500 tracking-wider uppercase">Focused Niche</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ── -->
+  <section id="testimonials" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14 reveal">
+        <p class="text-xs font-semibold tracking-widest label-text uppercase mb-3">Results</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight">What Clients Are Saying</h2>
+        <p class="text-gray-400 mt-3 max-w-md mx-auto text-sm leading-relaxed">Real businesses. Real numbers. Real results.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <div class="gradient-border rounded-2xl p-6 reveal reveal-d1">
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-sm text-gray-300 leading-relaxed mb-5">"Leads that used to take 3 days to follow up on now get responded to in under 2 minutes. We closed 2 extra deals the first month alone. The ROI was obvious from week one."</p>
+          <div class="border-t border-border pt-4">
+            <div class="font-semibold text-sm">Marcus Hill</div>
+            <div class="text-xs text-gray-500">Owner · Hill Realty Co.</div>
+          </div>
+        </div>
+
+        <div class="gradient-border rounded-2xl p-6 reveal reveal-d2">
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-sm text-gray-300 leading-relaxed mb-5">"Priced 1,200 cards in a single afternoon. That used to eat my entire weekend. Colton built the whole system in 2 weeks and it's been running flawlessly ever since."</p>
+          <div class="border-t border-border pt-4">
+            <div class="font-semibold text-sm">Jordyn Walsh</div>
+            <div class="text-xs text-gray-500">Founder · Walsh Collectibles</div>
+          </div>
+        </div>
+
+        <div class="gradient-border rounded-2xl p-6 reveal reveal-d3">
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-sm text-gray-300 leading-relaxed mb-5">"Content output tripled with zero extra headcount. The automation just runs — we publish more than ever and I haven't touched the workflow in months."</p>
+          <div class="border-t border-border pt-4">
+            <div class="font-semibold text-sm">Darian Moss</div>
+            <div class="text-xs text-gray-500">CEO · Moss Media Group</div>
+          </div>
+        </div>
+
+        <div class="gradient-border rounded-2xl p-6 reveal reveal-d1">
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-sm text-gray-300 leading-relaxed mb-5">"eBay listings that took 4 hours to batch now take 8 minutes. Completely changed how we operate. The system paid for itself within 3 weeks."</p>
+          <div class="border-t border-border pt-4">
+            <div class="font-semibold text-sm">Samantha Reid</div>
+            <div class="text-xs text-gray-500">Operations Manager · Reid E-Commerce</div>
+          </div>
+        </div>
+
+        <div class="gradient-border rounded-2xl p-6 reveal reveal-d2">
+          <div class="flex items-center gap-1 mb-4">
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-3.5 h-3.5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-sm text-gray-300 leading-relaxed mb-5">"Booked 6 qualified discovery calls in the first week after the LinkedIn system went live. I'd been manually outreaching for months with nowhere near those numbers."</p>
+          <div class="border-t border-border pt-4">
+            <div class="font-semibold text-sm">Tyler Brooks</div>
+            <div class="text-xs text-gray-500">Founder · Brooks Consulting</div>
+          </div>
+        </div>
+
+        <div class="highlight-card rounded-2xl p-6 flex flex-col items-center justify-center text-center min-h-[220px] reveal reveal-d3">
+          <div class="font-display text-3xl font-bold accent-text mb-2">Your Business</div>
+          <p class="text-sm text-gray-400 mb-5">Could be the next one on this list.</p>
+          <a href="#cta" class="btn-primary text-xs font-semibold px-5 py-2.5 rounded cursor-pointer">Let's Talk →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PORTFOLIO (full) ── -->
+  <section id="portfolio-full" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <p class="text-xs font-semibold tracking-widest label-text uppercase mb-3">Portfolio</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight">Just a Taste of What We Built</h2>
+        <p class="text-gray-400 mt-3 max-w-lg mx-auto text-sm leading-relaxed">Real AI systems, deployed in production, generating real results for real businesses.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="gradient-border rounded-2xl p-6 cursor-default reveal reveal-d1">
+          <div class="text-xs label-text font-semibold tracking-wider uppercase mb-3">E-Commerce</div>
+          <h3 class="font-display font-bold text-xl mb-2">eBay Product Listing AI</h3>
+          <p class="text-sm text-gray-400 leading-relaxed mb-4">Reads items directly from photos, auto-generates eBay listings, and pulls live market pricing data, zero manual entry required.</p>
+          <div class="flex items-center justify-between pt-3 border-t border-border">
+            <span class="text-xs text-gray-500">Impact</span>
+            <span class="text-sm font-bold accent-text">Hours of work → 1 click</span>
+          </div>
+        </div>
+
+        <div class="gradient-border rounded-2xl p-6 cursor-default reveal reveal-d2">
+          <div class="text-xs label-text font-semibold tracking-wider uppercase mb-3">Real Estate</div>
+          <h3 class="font-display font-bold text-xl mb-2">Lead Qualification System</h3>
+          <p class="text-sm text-gray-400 leading-relaxed mb-4">Automated lead scoring and follow-up routing for real estate agents. Every incoming lead is qualified and actioned without lifting a finger.</p>
+          <div class="flex items-center justify-between pt-3 border-t border-border">
+            <span class="text-xs text-gray-500">Impact</span>
+            <span class="text-sm font-bold accent-text">Every lead followed up, automatically</span>
+          </div>
+        </div>
+
+        <div class="gradient-border rounded-2xl p-6 cursor-default reveal reveal-d3">
+          <div class="text-xs label-text font-semibold tracking-wider uppercase mb-3">B2B / Lead Gen</div>
+          <h3 class="font-display font-bold text-xl mb-2">LinkedIn Lead-Gen System</h3>
+          <p class="text-sm text-gray-400 leading-relaxed mb-4">Content creation and personalized outreach automation on LinkedIn, and signed our first client on a performance-based engagement using this exact system.</p>
+          <div class="flex items-center justify-between pt-3 border-t border-border">
+            <span class="text-xs text-gray-500">Impact</span>
+            <span class="text-sm font-bold accent-text">First paying client landed</span>
+          </div>
+        </div>
+
+        <div class="gradient-border rounded-2xl p-6 cursor-default reveal reveal-d4">
+          <div class="text-xs label-text font-semibold tracking-wider uppercase mb-3">Collectibles</div>
+          <h3 class="font-display font-bold text-xl mb-2">AI Sports Card Pricing Platform</h3>
+          <p class="text-sm text-gray-400 leading-relaxed mb-4">Identifies sports cards from images and estimates market value using historical sales data, solving the pain of manual pricing across thousands of collectibles.</p>
+          <div class="flex items-center justify-between pt-3 border-t border-border">
+            <span class="text-xs text-gray-500">Impact</span>
+            <span class="text-sm font-bold accent-text">1,000s of cards priced instantly</span>
+          </div>
+        </div>
+
+        <div class="gradient-border rounded-2xl p-6 cursor-default reveal reveal-d5">
+          <div class="text-xs label-text font-semibold tracking-wider uppercase mb-3">Content / Media</div>
+          <h3 class="font-display font-bold text-xl mb-2">Short-Form Content Automation</h3>
+          <p class="text-sm text-gray-400 leading-relaxed mb-4">Faceless content clipping and publishing workflow built on n8n, scaling short-form output across platforms with minimal manual involvement.</p>
+          <div class="flex items-center justify-between pt-3 border-t border-border">
+            <span class="text-xs text-gray-500">Impact</span>
+            <span class="text-sm font-bold accent-text">Publish at scale, minimal labor</span>
+          </div>
+        </div>
+
+        <div class="highlight-card rounded-2xl p-6 flex flex-col items-center justify-center text-center min-h-[200px] cursor-default reveal reveal-d6">
+          <div class="font-display text-3xl font-bold accent-text mb-2">Your Business</div>
+          <p class="text-sm text-gray-400">Could be the next one on this list.</p>
+          <a href="#cta" class="btn-primary mt-4 text-xs font-semibold px-4 py-2 rounded cursor-pointer">Let's Talk →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOW IT WORKS ── -->
+  <section class="py-24 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <p class="text-xs font-semibold tracking-widest label-text uppercase mb-3">Process</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight">How It Works</h2>
+        <p class="text-gray-400 mt-3 text-sm max-w-md mx-auto leading-relaxed">Three steps from zero to a deployed, revenue-generating AI system.</p>
+      </div>
+
+      <div class="space-y-3">
+        <div class="bg-bg p-8 md:p-10 flex gap-6 md:gap-10 items-start reveal rounded-2xl border border-border">
+          <div class="shrink-0 w-10 h-10 rounded-full border border-accent/30 bg-accent/5 flex items-center justify-center accent-text font-bold text-sm">01</div>
+          <div>
+            <h3 class="font-display font-bold text-xl mb-2">Strategy Call</h3>
+            <p class="text-gray-400 text-sm leading-relaxed max-w-xl">We dig into your business workflows, identify the highest-leverage AI opportunities, and map out a concrete build plan, no fluff, no generic pitches. You leave with a clear picture of what we'll build and what it will cost you.</p>
+            <div class="mt-4 inline-flex items-center gap-2 text-xs accent-text font-semibold">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd"/></svg>
+              Free. No strings attached.
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-bg p-8 md:p-10 flex gap-6 md:gap-10 items-start reveal reveal-d1 rounded-2xl border border-border">
+          <div class="shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm" style="border:1px solid rgba(139,43,226,0.40);background:rgba(139,43,226,0.07);color:#A855F7">02</div>
+          <div>
+            <h3 class="font-display font-bold text-xl mb-2">Build &amp; Iterate</h3>
+            <p class="text-gray-400 text-sm leading-relaxed max-w-xl">Our team builds your AI system in focused 2-week sprints. You get live demos, regular check-ins, and a staging environment to test before anything hits production. We move fast without cutting corners.</p>
+            <div class="mt-4 inline-flex items-center gap-2 text-xs accent-text font-semibold">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd"/></svg>
+              Typical delivery: 2–6 weeks
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-bg p-8 md:p-10 flex gap-6 md:gap-10 items-start reveal reveal-d2 rounded-2xl border border-border">
+          <div class="shrink-0 w-10 h-10 rounded-full border border-accent/30 bg-accent/5 flex items-center justify-center accent-text font-bold text-sm">03</div>
+          <div>
+            <h3 class="font-display font-bold text-xl mb-2">Launch &amp; Scale</h3>
+            <p class="text-gray-400 text-sm leading-relaxed max-w-xl">We deploy to your infrastructure, train your team, and stay on for 30 days post-launch to ensure everything runs smoothly. Then we hand over the keys, or keep iterating under a retainer.</p>
+            <div class="mt-4 inline-flex items-center gap-2 text-xs accent-text font-semibold">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd"/></svg>
+              30-day support included
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section id="benefits" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <p class="text-xs font-semibold tracking-widest label-text uppercase mb-3">What I Build</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight">AI That Actually Works</h2>
+        <p class="text-gray-400 mt-3 text-sm max-w-md mx-auto leading-relaxed">Not demos. Not prototypes. Working systems that run inside your business from day one.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div class="bg-bg p-8 hover:bg-surface transition-colors duration-150 cursor-default reveal reveal-d1 rounded-2xl border border-border">
+          <div class="w-10 h-10 rounded-xl border border-accent/20 bg-accent/5 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 accent-text" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg mb-2">n8n Workflow Automation</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">Custom n8n pipelines that automate your most repetitive processes end-to-end, no code required on your end, just results.</p>
+        </div>
+
+        <div class="bg-bg p-8 hover:bg-surface transition-colors duration-150 cursor-default reveal reveal-d2 rounded-2xl border border-border">
+          <div class="w-10 h-10 rounded-xl border border-accent/20 bg-accent/5 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 accent-text" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg mb-2">Lead-Gen Systems</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">Automated LinkedIn outreach, content publishing, and follow-up sequences that fill your pipeline without filling your calendar.</p>
+        </div>
+
+        <div class="bg-bg p-8 hover:bg-surface transition-colors duration-150 cursor-default reveal reveal-d3 rounded-2xl border border-border">
+          <div class="w-10 h-10 rounded-xl border border-accent/20 bg-accent/5 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 accent-text" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 01-.923 1.785A5.969 5.969 0 006 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337z"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg mb-2">Lead Qualification &amp; Scoring</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">Automated systems that score, sort, and route every incoming lead so your best opportunities never slip through the cracks.</p>
+        </div>
+
+        <div class="bg-bg p-8 hover:bg-surface transition-colors duration-150 cursor-default reveal reveal-d4 rounded-2xl border border-border">
+          <div class="w-10 h-10 rounded-xl border border-accent/20 bg-accent/5 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 accent-text" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg mb-2">Product Listing Automation</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">AI that reads your inventory from images and auto-publishes listings with live market pricing, built for eBay and beyond.</p>
+        </div>
+
+        <div class="bg-bg p-8 hover:bg-surface transition-colors duration-150 cursor-default reveal reveal-d5 rounded-2xl border border-border">
+          <div class="w-10 h-10 rounded-xl border border-accent/20 bg-accent/5 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 accent-text" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg mb-2">Content Automation</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">Faceless short-form content workflows that clip, edit, caption, and publish at scale, consistent output without the manual grind.</p>
+        </div>
+
+        <div class="bg-bg p-8 hover:bg-surface transition-colors duration-150 cursor-default reveal reveal-d6 rounded-2xl border border-border">
+          <div class="w-10 h-10 rounded-xl border border-accent/20 bg-accent/5 flex items-center justify-center mb-5">
+            <svg class="w-5 h-5 accent-text" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 002.25-2.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v2.25A2.25 2.25 0 006 10.5zm0 9.75h2.25A2.25 2.25 0 0010.5 18v-2.25a2.25 2.25 0 00-2.25-2.25H6a2.25 2.25 0 00-2.25 2.25V18A2.25 2.25 0 006 20.25zm9.75-9.75H18a2.25 2.25 0 002.25-2.25V6A2.25 2.25 0 0018 3.75h-2.25A2.25 2.25 0 0013.5 6v2.25a2.25 2.25 0 002.25 2.25z"/></svg>
+          </div>
+          <h3 class="font-display font-bold text-lg mb-2">API &amp; Tool Integration</h3>
+          <p class="text-sm text-gray-500 leading-relaxed">Connect AI to the tools you already use — CRMs, spreadsheets, email, marketplaces, and custom APIs so it works inside your workflow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SAVINGS CALCULATOR ── -->
+  <section class="py-24 px-6">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="reveal">
+        <p class="text-xs font-semibold tracking-widest label-text uppercase mb-3">ROI Calculator</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight mb-3">See What You're Leaving on the Table</h2>
+        <p class="text-gray-400 text-sm mb-12 leading-relaxed">Enter what you pay a full-time employee to handle tasks AI could automate.</p>
+      </div>
+
+      <div class="bg-surface border border-border rounded-2xl p-8 md:p-10 text-left reveal reveal-d1">
+        <div class="mb-8">
+          <label class="block text-sm font-medium text-gray-300 mb-3">Employee hourly rate ($)</label>
+          <div class="relative">
+            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 font-medium">$</span>
+            <input id="hourlyRate" type="number" value="50" min="10" max="500"
+              class="w-full bg-card border border-border rounded px-8 py-3 text-white text-lg font-bold focus:outline-none focus:border-accent/50 transition-colors duration-150"
+              oninput="calcSavings()">
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+          <div class="bg-card rounded p-5">
+            <div class="text-xs text-gray-500 tracking-widest uppercase mb-2">Annual Employee Cost</div>
+            <div id="empCost" class="font-display text-2xl font-bold text-red-400">$104,000</div>
+          </div>
+          <div class="bg-card rounded p-5">
+            <div class="text-xs text-gray-500 tracking-widest uppercase mb-2">The Rage AI (30% Retainer)</div>
+            <div id="retainer" class="font-display text-2xl font-bold accent-text">$31,200</div>
+          </div>
+          <div class="bg-card rounded p-5">
+            <div class="text-xs text-gray-500 tracking-widest uppercase mb-2">You Save Annually</div>
+            <div id="savings" class="font-display text-2xl font-bold text-green-400">$72,800</div>
+          </div>
+        </div>
+        <p class="text-xs text-gray-600 mt-6 text-center">Assumes 40 hrs/week, 52 weeks/year. Retainer = 30% of equivalent employee cost.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COMPARISON ── -->
+  <section class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <p class="text-xs font-semibold tracking-widest label-text uppercase mb-3">Why Us</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight">The Rage AI vs. The Alternatives</h2>
+      </div>
+      <div class="overflow-x-auto reveal reveal-d1 rounded-2xl border border-border p-6 md:p-8 bg-surface">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-border">
+              <th class="text-left pb-4 font-medium text-gray-400 w-1/3">What You Get</th>
+              <th class="pb-4 font-bold accent-text text-center">The Rage AI</th>
+              <th class="pb-4 font-medium text-gray-500 text-center">Big Agency</th>
+              <th class="pb-4 font-medium text-gray-500 text-center">In-House Team</th>
+              <th class="pb-4 font-medium text-gray-500 text-center">Freelancers</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-border">
+            <tr><td class="py-4 text-gray-300">Fast delivery (2–6 weeks)</td><td class="py-4 text-center"><span class="accent-text font-bold">✓</span></td><td class="py-4 text-center text-gray-600">✗</td><td class="py-4 text-center text-gray-600">✗</td><td class="py-4 text-center text-gray-500">~</td></tr>
+            <tr><td class="py-4 text-gray-300">AI-specialized team</td><td class="py-4 text-center"><span class="accent-text font-bold">✓</span></td><td class="py-4 text-center text-gray-500">~</td><td class="py-4 text-center text-gray-600">✗</td><td class="py-4 text-center text-gray-500">~</td></tr>
+            <tr><td class="py-4 text-gray-300">Fixed, transparent pricing</td><td class="py-4 text-center"><span class="accent-text font-bold">✓</span></td><td class="py-4 text-center text-gray-600">✗</td><td class="py-4 text-center text-gray-600">✗</td><td class="py-4 text-center text-gray-500">~</td></tr>
+            <tr><td class="py-4 text-gray-300">Production-ready systems</td><td class="py-4 text-center"><span class="accent-text font-bold">✓</span></td><td class="py-4 text-center"><span class="accent-text font-bold">✓</span></td><td class="py-4 text-center text-gray-500">~</td><td class="py-4 text-center text-gray-600">✗</td></tr>
+            <tr><td class="py-4 text-gray-300">30-day post-launch support</td><td class="py-4 text-center"><span class="accent-text font-bold">✓</span></td><td class="py-4 text-center text-gray-600">✗</td><td class="py-4 text-center"><span class="accent-text font-bold">✓</span></td><td class="py-4 text-center text-gray-600">✗</td></tr>
+            <tr><td class="py-4 text-gray-300">Scales without hiring</td><td class="py-4 text-center"><span class="accent-text font-bold">✓</span></td><td class="py-4 text-center text-gray-600">✗</td><td class="py-4 text-center text-gray-600">✗</td><td class="py-4 text-center text-gray-600">✗</td></tr>
+          </tbody>
+        </table>
+        <p class="text-xs text-gray-600 mt-4">✓ = Included · ~ = Sometimes · ✗ = Not typically</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section id="faqs" class="py-24 px-6">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <p class="text-xs font-semibold tracking-widest label-text uppercase mb-3">FAQ</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight">Common Questions</h2>
+      </div>
+      <div class="space-y-2">
+        <div class="faq-item bg-bg reveal rounded-2xl overflow-hidden border border-border">
+          <button class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-surface transition-colors duration-150 cursor-pointer" onclick="toggleFaq(this)">
+            <span class="font-medium text-sm pr-4">How quickly can you build and deploy an AI solution?</span>
+            <span class="faq-icon shrink-0 accent-text text-xl font-light">+</span>
+          </button>
+          <div class="faq-answer px-6">
+            <p class="text-sm text-gray-400 leading-relaxed pb-5">Most projects are delivered within 2–6 weeks depending on complexity. Simple automations and chatbots typically ship in 2 weeks. More complex multi-agent systems or custom ML models take 4–6 weeks. We'll give you an accurate timeline on your strategy call.</p>
+          </div>
+        </div>
+        <div class="faq-item bg-bg reveal reveal-d1 rounded-2xl overflow-hidden border border-border">
+          <button class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-surface transition-colors duration-150 cursor-pointer" onclick="toggleFaq(this)">
+            <span class="font-medium text-sm pr-4">Do I need a technical background to work with you?</span>
+            <span class="faq-icon shrink-0 accent-text text-xl font-light">+</span>
+          </button>
+          <div class="faq-answer px-6">
+            <p class="text-sm text-gray-400 leading-relaxed pb-5">No. We work with founders, operators, and executives who understand their business deeply, we handle all the technical side. You just need to be clear about your workflows and goals.</p>
+          </div>
+        </div>
+        <div class="faq-item bg-bg reveal reveal-d2 rounded-2xl overflow-hidden border border-border">
+          <button class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-surface transition-colors duration-150 cursor-pointer" onclick="toggleFaq(this)">
+            <span class="font-medium text-sm pr-4">What does it cost to work with The Rage AI?</span>
+            <span class="faq-icon shrink-0 accent-text text-xl font-light">+</span>
+          </button>
+          <div class="faq-answer px-6">
+            <p class="text-sm text-gray-400 leading-relaxed pb-5">Project-based engagements typically range from $5,000 to $30,000 depending on scope. Ongoing retainers start at $3,000/month. All pricing is fixed upfront, no hourly billing surprises.</p>
+          </div>
+        </div>
+        <div class="faq-item bg-bg reveal reveal-d3 rounded-2xl overflow-hidden border border-border">
+          <button class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-surface transition-colors duration-150 cursor-pointer" onclick="toggleFaq(this)">
+            <span class="font-medium text-sm pr-4">Will the AI integrate with my existing tools?</span>
+            <span class="faq-icon shrink-0 accent-text text-xl font-light">+</span>
+          </button>
+          <div class="faq-answer px-6">
+            <p class="text-sm text-gray-400 leading-relaxed pb-5">Yes. We build integrations with any modern SaaS stack — HubSpot, Salesforce, Slack, email, databases, ERPs, and custom APIs. If there's a webhook or API, we can connect to it.</p>
+          </div>
+        </div>
+        <div class="faq-item bg-bg reveal reveal-d4 rounded-2xl overflow-hidden border border-border">
+          <button class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-surface transition-colors duration-150 cursor-pointer" onclick="toggleFaq(this)">
+            <span class="font-medium text-sm pr-4">What happens after the project is delivered?</span>
+            <span class="faq-icon shrink-0 accent-text text-xl font-light">+</span>
+          </button>
+          <div class="faq-answer px-6">
+            <p class="text-sm text-gray-400 leading-relaxed pb-5">Every project includes 30 days of post-launch support for bug fixes and tuning. After that, you can maintain it yourself or move to a monthly retainer where we continue improving and expanding the system.</p>
+          </div>
+        </div>
+        <div class="faq-item bg-bg reveal reveal-d5 rounded-2xl overflow-hidden border border-border">
+          <button class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-surface transition-colors duration-150 cursor-pointer" onclick="toggleFaq(this)">
+            <span class="font-medium text-sm pr-4">Is my business data safe?</span>
+            <span class="faq-icon shrink-0 accent-text text-xl font-light">+</span>
+          </button>
+          <div class="faq-answer px-6">
+            <p class="text-sm text-gray-400 leading-relaxed pb-5">Absolutely. We sign NDAs before any work begins, use enterprise-grade infrastructure, and sensitive data never leaves your environment unless explicitly required. We follow industry-standard security practices throughout.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FINAL CTA ── -->
+  <section id="cta" class="py-32 px-6">
+    <div class="max-w-2xl mx-auto text-center reveal">
+      <p class="text-xs font-semibold tracking-widest label-text uppercase mb-4">Get Started</p>
+      <h2 class="font-display text-5xl md:text-6xl font-bold tracking-tight leading-tight mb-6">
+        Ready to Build<br>
+        <em class="accent-text">Something Real?</em>
+      </h2>
+      <p class="text-gray-400 mb-10 leading-relaxed text-sm md:text-base">
+        Book a free 30-minute strategy call. We'll identify your highest-leverage AI opportunity and map out a build plan. Zero pressure, zero pitch decks.
+      </p>
+      <a href="#" class="btn-primary inline-flex items-center gap-2 px-10 py-4 rounded text-sm tracking-wide cursor-pointer">
+        Book Your Strategy Call Now
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+      </a>
+      <p class="text-xs text-gray-600 mt-4">Free · No commitment · 30 minutes</p>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="px-6 py-10 border-t border-border">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <span class="font-display font-bold text-lg tracking-tight">The Rage <span class="accent-text">AI</span></span>
+        <p class="text-xs text-gray-600 mt-1">AI automations &amp; lead-gen for small businesses.</p>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#works"    class="text-xs text-gray-500 hover:text-white transition-colors duration-150">Works</a>
+        <a href="#benefits" class="text-xs text-gray-500 hover:text-white transition-colors duration-150">Benefits</a>
+        <a href="#faqs"     class="text-xs text-gray-500 hover:text-white transition-colors duration-150">FAQs</a>
+        <a href="#"         class="text-xs text-gray-500 hover:text-white transition-colors duration-150">Twitter</a>
+        <a href="#"         class="text-xs text-gray-500 hover:text-white transition-colors duration-150">Instagram</a>
+        <a href="#"         class="text-xs text-gray-500 hover:text-white transition-colors duration-150">YouTube</a>
+      </div>
+      <div class="text-xs text-gray-600">© 2026 The Rage AI. All rights reserved.</div>
+    </div>
+  </footer>
+
+  </div><!-- /page -->
+
+  <script>
+    function calcSavings() {
+      const rate = parseFloat(document.getElementById('hourlyRate').value) || 0;
+      const annual = rate * 40 * 52;
+      const retainer = Math.round(annual * 0.30);
+      const saved = annual - retainer;
+      document.getElementById('empCost').textContent   = '$' + annual.toLocaleString();
+      document.getElementById('retainer').textContent  = '$' + retainer.toLocaleString();
+      document.getElementById('savings').textContent   = '$' + saved.toLocaleString();
+    }
+
+    function toggleFaq(btn) {
+      const answer = btn.nextElementSibling;
+      const icon   = btn.querySelector('.faq-icon');
+      const isOpen = answer.classList.contains('open');
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+      document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('open'));
+      if (!isOpen) { answer.classList.add('open'); icon.classList.add('open'); }
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const btn  = document.getElementById('hamburgerBtn');
+      menu.classList.toggle('open');
+      btn.classList.toggle('open');
+    }
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(el => {
+        if (el.isIntersecting) {
+          el.target.classList.add('visible');
+          revealObserver.unobserve(el.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  </script>
+
+</body>
+</html>
