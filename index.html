@@ -131,10 +131,18 @@
     .accent-text  { color: #FA0821; }
     .purple-text  { color: #A855F7; }
     .label-text   { color: #767676; }
+    @font-face {
+      font-family: 'Peach Club Script';
+      src: url('Peach Club Script TTF.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
     em.accent-text {
-      font-family: 'Playfair Display', serif;
-      font-style: italic;
+      font-family: 'Peach Club Script', cursive;
+      font-style: normal;
       color: #FA0821;
+      font-size: 1.2em;
+      line-height: 1;
     }
 
     /* ── CARDS ── */
@@ -428,7 +436,7 @@
     <!-- Hero logo background — ibex-style centered stamp -->
     <img src="The_Rage_AI_Circle_Only_Clean.png" class="hero-logo" aria-hidden="true" alt="">
 
-    <div class="relative z-10 max-w-4xl mx-auto w-full text-center reveal">
+    <div class="relative z-10 max-w-5xl mx-auto w-full text-center reveal">
 
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent/25 bg-accent/5 mb-10 text-xs font-semibold accent-text tracking-wider uppercase">
         <span class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
@@ -511,7 +519,7 @@
 
   <!-- ── FEATURED WORK (ibex-style tall cards) ── -->
   <section id="works" class="py-32 px-6">
-    <div class="max-w-6xl mx-auto">
+    <div class="max-w-7xl mx-auto">
 
       <div class="text-center mb-20 reveal">
         <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold">The Work</h2>
@@ -634,7 +642,7 @@
 
   <!-- ── RESULTS NUMBERS ── -->
   <section class="py-10 px-6">
-    <div class="max-w-5xl mx-auto">
+    <div class="max-w-6xl mx-auto">
       <h2 class="font-display text-3xl md:text-4xl font-bold text-center mb-12">Proven Numbers</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center reveal">
         <div>
@@ -654,8 +662,8 @@
   </section>
 
   <!-- ── FOUNDER ── -->
-  <section class="py-24 px-6">
-    <div class="max-w-5xl mx-auto">
+  <section class="py-24 px-8 md:px-16">
+    <div class="max-w-6xl mx-auto">
       <div class="text-center mb-14 reveal">
         <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight">Our Founder</h2>
       </div>
@@ -794,8 +802,8 @@
   </section>
 
   <!-- ── HOW IT WORKS ── -->
-  <section class="py-24 px-6">
-    <div class="max-w-4xl mx-auto">
+  <section class="py-24 px-8 md:px-16">
+    <div class="max-w-5xl mx-auto">
       <div class="text-center mb-16 reveal">
         <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight">How It Works</h2>
         <p class="text-gray-400 mt-3 text-sm max-w-md mx-auto leading-relaxed">Three steps from zero to a deployed, revenue-generating AI system.</p>
@@ -851,8 +859,8 @@
   </section>
 
   <!-- ── SERVICES ── -->
-  <section id="benefits" class="py-24 px-6">
-    <div class="max-w-6xl mx-auto">
+  <section id="benefits" class="py-24 px-8 md:px-16">
+    <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16 reveal">
         <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight">AI That Actually Works</h2>
         <p class="text-gray-400 mt-3 text-sm max-w-md mx-auto leading-relaxed">Not demos. Not prototypes. Working systems that run inside your business from day one.</p>
@@ -911,7 +919,7 @@
   </section>
 
   <!-- ── SAVINGS CALCULATOR ── -->
-  <section class="py-24 px-6">
+  <section class="py-24 px-8 md:px-16">
     <div class="max-w-3xl mx-auto text-center">
       <div class="reveal">
         <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight mb-3">See What You're Leaving on the Table</h2>
@@ -948,8 +956,8 @@
   </section>
 
   <!-- ── COMPARISON ── -->
-  <section class="py-24 px-6">
-    <div class="max-w-5xl mx-auto">
+  <section class="py-24 px-8 md:px-16">
+    <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16 reveal">
         <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight">The Rage AI vs. The Alternatives</h2>
       </div>
@@ -979,7 +987,7 @@
   </section>
 
   <!-- ── FAQ ── -->
-  <section id="faqs" class="py-24 px-6">
+  <section id="faqs" class="py-24 px-8 md:px-16">
     <div class="max-w-3xl mx-auto">
       <div class="text-center mb-16 reveal">
         <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight">Common Questions</h2>
@@ -1044,8 +1052,8 @@
   </section>
 
   <!-- ── PAIN POINTS ── -->
-  <section class="py-24 px-6">
-    <div class="max-w-4xl mx-auto">
+  <section class="py-24 px-8 md:px-16">
+    <div class="max-w-5xl mx-auto">
       <div class="text-center mb-12 reveal">
         <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight">Sound Familiar?</h2>
         <p class="text-gray-400 mt-3 text-sm max-w-md mx-auto leading-relaxed">If your business struggles with any of these, you're exactly who we built this for.</p>
@@ -1105,7 +1113,7 @@
 
   <!-- ── FOOTER ── -->
   <footer class="px-6 py-10 border-t border-border">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
       <div>
         <span class="font-display font-bold text-lg tracking-tight">The Rage <span class="accent-text">AI</span></span>
         <p class="text-xs text-gray-600 mt-1">AI automations &amp; lead-gen for small businesses.</p>
@@ -1164,6 +1172,7 @@
 
 </body>
 </html>
+
 
 
 
