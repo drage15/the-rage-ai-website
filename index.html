@@ -309,6 +309,36 @@
 
     /* ── HOW IT WORKS ICON ── */
     .step-icon { width:3rem; height:3rem; border-radius:0.75rem; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+
+    /* ── MARQUEE / TECH STRIP ── */
+    .marquee-outer { overflow:hidden; }
+    .marquee-inner { display:flex; width:max-content; animation:marquee 30s linear infinite; }
+    .marquee-inner:hover { animation-play-state:paused; }
+    @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    .tool-pill {
+      display:inline-flex; align-items:center; gap:0.5rem;
+      padding:0.45rem 1.1rem; border-radius:9999px;
+      border:1px solid rgba(28,0,0,0.9); background:#080000;
+      font-size:0.72rem; font-weight:600; color:#6b7280;
+      white-space:nowrap; letter-spacing:0.04em; transition:color 0.15s;
+    }
+    .tool-pill:hover { color:#d1d5db; }
+    .tool-dot { width:6px; height:6px; border-radius:50%; }
+
+    /* ── RESULTS NUMBERS BANNER ── */
+    .result-num { font-family:'Playfair Display',serif; font-size:clamp(2.5rem,5vw,3.5rem); font-weight:700; line-height:1; }
+
+    /* ── TRUST BADGES ── */
+    .trust-badge {
+      display:inline-flex; align-items:center; gap:0.5rem;
+      padding:0.5rem 1.1rem; border-radius:9999px;
+      border:1px solid rgba(28,0,0,0.9); background:#080000;
+      font-size:0.72rem; font-weight:600; color:#6b7280;
+      white-space:nowrap;
+    }
+
+    /* ── PORTFOLIO CARD COLOR BANDS ── */
+    .port-band { height:4px; border-radius:4px 4px 0 0; margin:-1.5rem -1.5rem 1.25rem; }
   </style>
 </head>
 <body class="antialiased">
@@ -439,6 +469,42 @@
     </div>
   </section>
 
+  <!-- ── TECH STACK STRIP ── -->
+  <section class="py-8 border-y border-border marquee-outer">
+    <div class="marquee-inner gap-3 px-3">
+      <!-- first copy -->
+      <span class="tool-pill"><span class="tool-dot bg-red-500"></span>n8n</span>
+      <span class="tool-pill"><span class="tool-dot bg-orange-400"></span>Claude AI</span>
+      <span class="tool-pill"><span class="tool-dot bg-green-500"></span>OpenAI</span>
+      <span class="tool-pill"><span class="tool-dot bg-blue-500"></span>Make</span>
+      <span class="tool-pill"><span class="tool-dot bg-yellow-400"></span>Airtable</span>
+      <span class="tool-pill"><span class="tool-dot bg-orange-500"></span>HubSpot</span>
+      <span class="tool-pill"><span class="tool-dot bg-blue-600"></span>LinkedIn</span>
+      <span class="tool-pill"><span class="tool-dot bg-purple-500"></span>Slack</span>
+      <span class="tool-pill"><span class="tool-dot bg-pink-500"></span>Zapier</span>
+      <span class="tool-pill"><span class="tool-dot bg-blue-400"></span>Notion</span>
+      <span class="tool-pill"><span class="tool-dot bg-green-400"></span>Google Sheets</span>
+      <span class="tool-pill"><span class="tool-dot bg-yellow-500"></span>eBay API</span>
+      <span class="tool-pill"><span class="tool-dot bg-sky-400"></span>Supabase</span>
+      <span class="tool-pill"><span class="tool-dot bg-accent"></span>Webhooks</span>
+      <!-- duplicate for seamless loop -->
+      <span class="tool-pill"><span class="tool-dot bg-red-500"></span>n8n</span>
+      <span class="tool-pill"><span class="tool-dot bg-orange-400"></span>Claude AI</span>
+      <span class="tool-pill"><span class="tool-dot bg-green-500"></span>OpenAI</span>
+      <span class="tool-pill"><span class="tool-dot bg-blue-500"></span>Make</span>
+      <span class="tool-pill"><span class="tool-dot bg-yellow-400"></span>Airtable</span>
+      <span class="tool-pill"><span class="tool-dot bg-orange-500"></span>HubSpot</span>
+      <span class="tool-pill"><span class="tool-dot bg-blue-600"></span>LinkedIn</span>
+      <span class="tool-pill"><span class="tool-dot bg-purple-500"></span>Slack</span>
+      <span class="tool-pill"><span class="tool-dot bg-pink-500"></span>Zapier</span>
+      <span class="tool-pill"><span class="tool-dot bg-blue-400"></span>Notion</span>
+      <span class="tool-pill"><span class="tool-dot bg-green-400"></span>Google Sheets</span>
+      <span class="tool-pill"><span class="tool-dot bg-yellow-500"></span>eBay API</span>
+      <span class="tool-pill"><span class="tool-dot bg-sky-400"></span>Supabase</span>
+      <span class="tool-pill"><span class="tool-dot bg-accent"></span>Webhooks</span>
+    </div>
+  </section>
+
   <!-- ── FEATURED WORK (ibex-style tall cards) ── -->
   <section id="works" class="py-32 px-6">
     <div class="max-w-6xl mx-auto">
@@ -560,6 +626,31 @@
         </a>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ── RESULTS NUMBERS ── -->
+  <section class="py-20 px-6 bg-surface border-y border-border">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-xs font-semibold tracking-widest label-text uppercase text-center mb-14">By The Numbers</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 text-center reveal">
+        <div>
+          <div class="result-num accent-text">2<span class="text-2xl">min</span></div>
+          <div class="text-xs text-gray-600 mt-3 tracking-wider uppercase leading-relaxed">Avg. Lead<br>Response Time</div>
+        </div>
+        <div>
+          <div class="result-num text-white">1<span class="font-display text-2xl font-bold text-gray-400">-click</span></div>
+          <div class="text-xs text-gray-600 mt-3 tracking-wider uppercase leading-relaxed">eBay Listings<br>Created</div>
+        </div>
+        <div>
+          <div class="result-num" style="color:#A855F7">3<span class="text-2xl">x</span></div>
+          <div class="text-xs text-gray-600 mt-3 tracking-wider uppercase leading-relaxed">Content Output<br>Increase</div>
+        </div>
+        <div>
+          <div class="result-num accent-text">6</div>
+          <div class="text-xs text-gray-600 mt-3 tracking-wider uppercase leading-relaxed">Qualified Calls<br>Week One</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -717,6 +808,7 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <div class="gradient-border rounded-2xl p-6 cursor-default reveal reveal-d1">
+          <div class="port-band" style="background:linear-gradient(90deg,#FA0821,#FF6B35)"></div>
           <div class="text-xs label-text font-semibold tracking-wider uppercase mb-3">E-Commerce</div>
           <h3 class="font-display font-bold text-xl mb-2">eBay Product Listing AI</h3>
           <p class="text-sm text-gray-400 leading-relaxed mb-4">Photo in. Market-priced eBay listing out. Zero manual entry.</p>
@@ -727,6 +819,7 @@
         </div>
 
         <div class="gradient-border rounded-2xl p-6 cursor-default reveal reveal-d2">
+          <div class="port-band" style="background:linear-gradient(90deg,#8B2BE2,#A855F7)"></div>
           <div class="text-xs label-text font-semibold tracking-wider uppercase mb-3">Real Estate</div>
           <h3 class="font-display font-bold text-xl mb-2">Lead Qualification System</h3>
           <p class="text-sm text-gray-400 leading-relaxed mb-4">Every lead scored, routed, and followed up automatically. Zero manual touchpoints.</p>
@@ -737,6 +830,7 @@
         </div>
 
         <div class="gradient-border rounded-2xl p-6 cursor-default reveal reveal-d3">
+          <div class="port-band" style="background:linear-gradient(90deg,#0077B5,#38BDF8)"></div>
           <div class="text-xs label-text font-semibold tracking-wider uppercase mb-3">B2B / Lead Gen</div>
           <h3 class="font-display font-bold text-xl mb-2">LinkedIn Lead-Gen System</h3>
           <p class="text-sm text-gray-400 leading-relaxed mb-4">Personalized outreach and content on autopilot. Landed our first client on this exact system.</p>
@@ -747,6 +841,7 @@
         </div>
 
         <div class="gradient-border rounded-2xl p-6 cursor-default reveal reveal-d4">
+          <div class="port-band" style="background:linear-gradient(90deg,#F59E0B,#FCD34D)"></div>
           <div class="text-xs label-text font-semibold tracking-wider uppercase mb-3">Collectibles</div>
           <h3 class="font-display font-bold text-xl mb-2">AI Sports Card Pricing Platform</h3>
           <p class="text-sm text-gray-400 leading-relaxed mb-4">Identifies cards from images and estimates market value from historical sales. Thousands priced instantly.</p>
@@ -757,6 +852,7 @@
         </div>
 
         <div class="gradient-border rounded-2xl p-6 cursor-default reveal reveal-d5">
+          <div class="port-band" style="background:linear-gradient(90deg,#10B981,#34D399)"></div>
           <div class="text-xs label-text font-semibold tracking-wider uppercase mb-3">Content / Media</div>
           <h3 class="font-display font-bold text-xl mb-2">Short-Form Content Automation</h3>
           <p class="text-sm text-gray-400 leading-relaxed mb-4">Clips, captions, and publishes across platforms on n8n. Scale output with minimal manual involvement.</p>
@@ -1045,7 +1141,13 @@
         Book Your Strategy Call Now
         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
       </a>
-      <p class="text-xs text-gray-600 mt-4">Free · No commitment · 30 minutes</p>
+      <div class="flex flex-wrap items-center justify-center gap-2 mt-8">
+        <span class="trust-badge"><svg class="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd"/></svg>Free Strategy Call</span>
+        <span class="trust-badge"><svg class="w-3 h-3 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd"/></svg>2–6 Week Delivery</span>
+        <span class="trust-badge"><svg class="w-3 h-3 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>5-Star Rated</span>
+        <span class="trust-badge"><svg class="w-3 h-3" style="color:#A855F7" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd"/></svg>30-Day Support</span>
+        <span class="trust-badge"><svg class="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd"/></svg>NDA Included</span>
+      </div>
     </div>
   </section>
 
