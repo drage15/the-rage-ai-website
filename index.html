@@ -535,7 +535,7 @@
   </section>
 
   <!-- ── TECH STACK STRIP ── -->
-  <section class="py-8 marquee-outer">
+  <section id="tech-strip" class="py-8 marquee-outer">
     <div class="marquee-inner gap-3 px-3">
       <!-- first copy -->
       <span class="tool-pill"><span class="tool-dot bg-accent"></span>n8n</span>
@@ -1226,8 +1226,10 @@
   <script>
     (function() {
       function checkScroll() {
+        var strip = document.getElementById('tech-strip');
+        var pastStrip = strip ? strip.getBoundingClientRect().bottom <= 0 : true;
         var nearBottom = (window.scrollY + window.innerHeight) >= (document.body.scrollHeight - 120);
-        document.body.classList.toggle('blur-hidden', nearBottom);
+        document.body.classList.toggle('blur-hidden', !pastStrip || nearBottom);
       }
       window.addEventListener('scroll', checkScroll, { passive: true });
       checkScroll();
@@ -1235,6 +1237,7 @@
   </script>
 </body>
 </html>
+
 
 
 
