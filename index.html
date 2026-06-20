@@ -341,7 +341,7 @@
     .port-band { height:4px; border-radius:4px 4px 0 0; margin:-1.5rem -1.5rem 1.25rem; }
 
     /* ── PAIN POINTS ── */
-    .testi-card { width:340px; flex-shrink:0; background:#080000; border:1px solid rgba(28,0,0,1); border-radius:1rem; padding:1.5rem; margin-right:1.25rem; }
+    .testi-card { width:clamp(320px,38vw,500px); flex-shrink:0; background:#080000; border:1px solid rgba(28,0,0,1); border-radius:1rem; padding:1.75rem; margin-right:1.25rem; }
     .testi-stars { color:#facc15; letter-spacing:0.05em; font-size:0.8rem; margin-bottom:0.875rem; }
     .pain-card {
       display:flex; align-items:flex-start; gap:0.875rem;
@@ -690,13 +690,12 @@
   </section>
 
   <!-- ── TESTIMONIALS ── -->
-  <section id="testimonials" class="py-24 px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-14 reveal">
-        <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight">What Clients Are Saying</h2>
-        <p class="text-gray-400 mt-3 max-w-md mx-auto text-sm leading-relaxed">Real businesses. Real numbers. Real results.</p>
-      </div>
-      <div class="marquee-outer">
+  <section id="testimonials" class="py-24">
+    <div class="text-center mb-14 reveal px-6">
+      <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight">What Clients Are Saying</h2>
+      <p class="text-gray-400 mt-3 max-w-md mx-auto text-sm leading-relaxed">Real businesses. Real numbers. Real results.</p>
+    </div>
+    <div class="marquee-outer">
         <div class="marquee-inner" style="animation-duration:45s">
 
           <div class="testi-card">
@@ -792,7 +791,6 @@
 
         </div>
       </div>
-    </div>
   </section>
 
   <!-- ── HOW IT WORKS ── -->
@@ -804,7 +802,7 @@
       </div>
 
       <div class="space-y-3">
-        <div class="bg-bg p-8 md:p-10 flex gap-6 md:gap-10 items-center reveal rounded-2xl border border-border">
+        <div class="bg-bg p-5 md:p-6 flex gap-5 md:gap-8 items-center reveal rounded-2xl border border-border">
           <div class="shrink-0 w-10 h-10 rounded-full border border-accent/30 bg-accent/5 flex items-center justify-center accent-text font-bold text-sm">01</div>
           <div class="flex-1">
             <h3 class="font-display font-bold text-xl mb-2">Strategy Call</h3>
@@ -819,7 +817,7 @@
           </div>
         </div>
 
-        <div class="bg-bg p-8 md:p-10 flex gap-6 md:gap-10 items-center reveal reveal-d1 rounded-2xl border border-border">
+        <div class="bg-bg p-5 md:p-6 flex gap-5 md:gap-8 items-center reveal reveal-d1 rounded-2xl border border-border">
           <div class="shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm" style="border:1px solid rgba(139,43,226,0.40);background:rgba(139,43,226,0.07);color:#A855F7">02</div>
           <div class="flex-1">
             <h3 class="font-display font-bold text-xl mb-2">Build &amp; Iterate</h3>
@@ -834,7 +832,7 @@
           </div>
         </div>
 
-        <div class="bg-bg p-8 md:p-10 flex gap-6 md:gap-10 items-center reveal reveal-d2 rounded-2xl border border-border">
+        <div class="bg-bg p-5 md:p-6 flex gap-5 md:gap-8 items-center reveal reveal-d2 rounded-2xl border border-border">
           <div class="shrink-0 w-10 h-10 rounded-full border border-accent/30 bg-accent/5 flex items-center justify-center accent-text font-bold text-sm">03</div>
           <div class="flex-1">
             <h3 class="font-display font-bold text-xl mb-2">Launch &amp; Scale</h3>
@@ -1166,6 +1164,7 @@
 
 </body>
 </html>
+
 
 
 
