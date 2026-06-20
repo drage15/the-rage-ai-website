@@ -35,17 +35,14 @@
   </script>
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans:    ['Inter', 'sans-serif'],
-            display: ['Playfair Display', 'serif'],
+            sans: ['Coolvetica Rg', 'sans-serif'],
+            display: ['LTCushion-Medium', 'serif'],
           },
           colors: {
             bg:      '#030000',
@@ -132,16 +129,28 @@
     .purple-text  { color: #A855F7; }
     .label-text   { color: #767676; }
     @font-face {
-      font-family: 'Peach Club Script';
-      src: url('Peach Club Script TTF.ttf') format('truetype');
+      font-family: 'Coolvetica Rg';
+      src: url('Coolvetica Rg.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'LTCushion-Medium';
+      src: url('LTCushion-Medium.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'LTCushion-Black';
+      src: url('LTCushion-Black.ttf') format('truetype');
       font-weight: normal;
       font-style: normal;
     }
     em.accent-text {
-      font-family: 'Peach Club Script', cursive;
+      font-family: 'LTCushion-Black', serif;
       font-style: normal;
       color: #FA0821;
-      font-size: 1.2em;
+      font-size: 1.1em;
       line-height: 1;
     }
 
@@ -1172,6 +1181,7 @@
 
 </body>
 </html>
+
 
 
 
