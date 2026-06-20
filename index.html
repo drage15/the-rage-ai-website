@@ -1227,7 +1227,7 @@
     (function() {
       function checkScroll() {
         var strip = document.getElementById('tech-strip');
-        var pastStrip = strip ? strip.getBoundingClientRect().bottom <= 0 : true;
+        var pastStrip = strip ? strip.getBoundingClientRect().bottom <= 120 : true;
         var nearBottom = (window.scrollY + window.innerHeight) >= (document.body.scrollHeight - 120);
         document.body.classList.toggle('blur-hidden', !pastStrip || nearBottom);
       }
@@ -1237,6 +1237,7 @@
   </script>
 </body>
 </html>
+
 
 
 
