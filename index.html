@@ -406,6 +406,11 @@
       mask-image: linear-gradient(to top, black 0%, black 20%, transparent 100%);
       pointer-events: none;
       z-index: 50;
+      opacity: 1;
+      transition: opacity 0.4s ease;
+    }
+    body.blur-hidden::after {
+      opacity: 0;
     }
     .pain-x { color:rgba(250,8,33,0.45); font-weight:700; flex-shrink:0; margin-top:0.1rem; }
   </style>
@@ -1218,8 +1223,19 @@
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
   </script>
 
+  <script>
+    (function() {
+      function checkScroll() {
+        var nearBottom = (window.scrollY + window.innerHeight) >= (document.body.scrollHeight - 120);
+        document.body.classList.toggle('blur-hidden', nearBottom);
+      }
+      window.addEventListener('scroll', checkScroll, { passive: true });
+      checkScroll();
+    })();
+  </script>
 </body>
 </html>
+
 
 
 
