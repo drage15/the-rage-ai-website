@@ -391,27 +391,7 @@
       box-shadow: 0 0 32px rgba(139,43,226,0.22), 0 0 64px rgba(139,43,226,0.07);
       border-color: rgba(139,43,226,0.3);
     }
-    /* ── SCROLL BLUR ── */
-    body::after {
-      content: '';
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 220px;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      background: transparent;
-      -webkit-mask-image: linear-gradient(to top, black 0%, black 20%, transparent 100%);
-      mask-image: linear-gradient(to top, black 0%, black 20%, transparent 100%);
-      pointer-events: none;
-      z-index: 50;
-      opacity: 1;
-      transition: opacity 0.4s ease;
-    }
-    body.blur-hidden::after {
-      opacity: 0;
-    }
+    
     .pain-x { color:rgba(250,8,33,0.45); font-weight:700; flex-shrink:0; margin-top:0.1rem; }
   </style>
 </head>
@@ -534,39 +514,33 @@
     </div>
   </section>
 
-  <!-- ── TECH STACK STRIP ── -->
-  <section id="tech-strip" class="py-8 marquee-outer">
-    <div class="marquee-inner gap-3 px-3">
-      <!-- first copy -->
-      <span class="tool-pill"><span class="tool-dot bg-accent"></span>n8n</span>
-      <span class="tool-pill"><span class="tool-dot" style="background:#8B2BE2"></span>Claude AI</span>
-      <span class="tool-pill"><span class="tool-dot bg-accent"></span>OpenAI</span>
-      <span class="tool-pill"><span class="tool-dot" style="background:#8B2BE2"></span>Make</span>
-      <span class="tool-pill"><span class="tool-dot bg-accent"></span>Airtable</span>
-      <span class="tool-pill"><span class="tool-dot" style="background:#8B2BE2"></span>HubSpot</span>
-      <span class="tool-pill"><span class="tool-dot bg-accent"></span>LinkedIn</span>
-      <span class="tool-pill"><span class="tool-dot" style="background:#8B2BE2"></span>Slack</span>
-      <span class="tool-pill"><span class="tool-dot bg-accent"></span>Zapier</span>
-      <span class="tool-pill"><span class="tool-dot" style="background:#8B2BE2"></span>Notion</span>
-      <span class="tool-pill"><span class="tool-dot bg-accent"></span>Google Sheets</span>
-      <span class="tool-pill"><span class="tool-dot" style="background:#8B2BE2"></span>eBay API</span>
-      <span class="tool-pill"><span class="tool-dot bg-accent"></span>Supabase</span>
-      <span class="tool-pill"><span class="tool-dot" style="background:#8B2BE2"></span>Webhooks</span>
-      <!-- duplicate for seamless loop -->
-      <span class="tool-pill"><span class="tool-dot bg-accent"></span>n8n</span>
-      <span class="tool-pill"><span class="tool-dot" style="background:#8B2BE2"></span>Claude AI</span>
-      <span class="tool-pill"><span class="tool-dot bg-accent"></span>OpenAI</span>
-      <span class="tool-pill"><span class="tool-dot" style="background:#8B2BE2"></span>Make</span>
-      <span class="tool-pill"><span class="tool-dot bg-accent"></span>Airtable</span>
-      <span class="tool-pill"><span class="tool-dot" style="background:#8B2BE2"></span>HubSpot</span>
-      <span class="tool-pill"><span class="tool-dot bg-accent"></span>LinkedIn</span>
-      <span class="tool-pill"><span class="tool-dot" style="background:#8B2BE2"></span>Slack</span>
-      <span class="tool-pill"><span class="tool-dot bg-accent"></span>Zapier</span>
-      <span class="tool-pill"><span class="tool-dot" style="background:#8B2BE2"></span>Notion</span>
-      <span class="tool-pill"><span class="tool-dot bg-accent"></span>Google Sheets</span>
-      <span class="tool-pill"><span class="tool-dot" style="background:#8B2BE2"></span>eBay API</span>
-      <span class="tool-pill"><span class="tool-dot bg-accent"></span>Supabase</span>
-      <span class="tool-pill"><span class="tool-dot" style="background:#8B2BE2"></span>Webhooks</span>
+  <!-- ── TRUST BADGES ── -->
+  <section id="tech-strip" class="py-10 px-8 md:px-16">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-4">
+      <div class="trust-badge">
+        <svg class="w-3.5 h-3.5 accent-text" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span>Under 2-Min Response Time</span>
+      </div>
+      <div class="trust-badge">
+        <svg class="w-3.5 h-3.5 accent-text" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6.633 10.5c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75A2.25 2.25 0 0116.5 4.5c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 00-1.423-.23H5.904M14.25 9h2.25M5.904 18.75c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 01-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 10.203 4.167 9.75 5 9.75h1.053c.472 0 .745.556.5.96a8.958 8.958 0 00-1.302 4.665c0 1.194.232 2.333.654 3.375z"/></svg>
+        <span>100% Performance-Based Pricing</span>
+      </div>
+      <div class="trust-badge">
+        <svg class="w-3.5 h-3.5 accent-text" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+        <span>2–6 Week Delivery</span>
+      </div>
+      <div class="trust-badge">
+        <svg class="w-3.5 h-3.5 accent-text" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg>
+        <span>30-Day Support Included</span>
+      </div>
+      <div class="trust-badge">
+        <svg class="w-3.5 h-3.5 accent-text" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/></svg>
+        <span>Built to Scale With You</span>
+      </div>
+      <div class="trust-badge">
+        <svg class="w-3.5 h-3.5 accent-text" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
+        <span>4+ Industries Automated</span>
+      </div>
     </div>
   </section>
 
@@ -1223,20 +1197,10 @@
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
   </script>
 
-  <script>
-    (function() {
-      function checkScroll() {
-        var strip = document.getElementById('tech-strip');
-        var pastStrip = strip ? strip.getBoundingClientRect().bottom <= 120 : true;
-        var nearBottom = (window.scrollY + window.innerHeight) >= (document.body.scrollHeight - 120);
-        document.body.classList.toggle('blur-hidden', !pastStrip || nearBottom);
-      }
-      window.addEventListener('scroll', checkScroll, { passive: true });
-      checkScroll();
-    })();
-  </script>
+  
 </body>
 </html>
+
 
 
 
